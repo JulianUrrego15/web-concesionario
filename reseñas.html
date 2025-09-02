@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADRENALINA POR LAS CALLES - Reseñas</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    .navbar {
+      background-color: #212529 !important;
+    }
+    .navbar .nav-link, 
+    .navbar .navbar-brand {
+      color: white !important;
+    }
+    .card {
+      background-color: #1c1c1c;
+      color: white;
+    }
+    .card-header {
+      background-color: #007bff !important;
+      color: white !important;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">ADRENALINA POR LAS CALLES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="quienes.html">Quiénes Somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="Electricos.html">Motos</a></li>
+          <li class="nav-item"><a class="nav-link" href="Gasolina.html">Autos</a></li>
+          <li class="nav-item"><a class="nav-link" href="Atencion al cliente.html">Atención al Cliente</a></li>
+          <li class="nav-item"><a class="nav-link" href="donde nos encontramos.html">Estamos</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="reseñas.html">Reseñas</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h2 class="text-center mb-4 text-primary">Reseñas</h2>
+
+    <!-- Reseñas existentes -->
+    <div id="listaResenas" class="mb-4">
+      <div class="card mb-2 shadow-sm">
+        <div class="card-body">⭐⭐⭐⭐⭐ "Excelente servicio y atención."</div>
+      </div>
+      <div class="card mb-2 shadow-sm">
+        <div class="card-body">⭐⭐⭐⭐ "Muy buena experiencia, recomendado."</div>
+      </div>
+       <div class="card mb-2 shadow-sm">
+        <div class="card-body">💕💕💕💕💕💕💕💕💕💕💕 "te amo mucho amor mio reina de mi alma"💕💕💕💕💕💕💕💕💕💕💕</div>
+      </div>
+    </div>
+
+    <!-- Formulario para nueva reseña -->
+    <div class="card shadow-sm">
+      <div class="card-header">
+        Añadir una reseña
+      </div>
+      <div class="card-body">
+        <form id="formResena">
+          <div class="mb-3">
+            <label for="textoResena" class="form-label">Escribe tu reseña:</label>
+            <textarea id="textoResena" class="form-control bg-dark text-white" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Publicar Reseña</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("formResena").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita recargar la página
+
+      let texto = document.getElementById("textoResena").value.trim();
+      if (texto !== "") {
+        let nuevaResena = document.createElement("div");
+        nuevaResena.classList.add("card", "mb-2", "shadow-sm");
+        nuevaResena.innerHTML = `<div class="card-body">⭐⭐⭐⭐⭐ ${texto}</div>`;
+        document.getElementById("listaResenas").appendChild(nuevaResena);
+        document.getElementById("textoResena").value = "";
+      }
+    });
+  </script>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
